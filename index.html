@@ -121,6 +121,20 @@
   .footer-card { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); padding: 22px 26px; }
   .footer-card p { margin: 0 0 12px; text-align: justify; text-justify: inter-word; line-height: 1.65; }
   .footer-card p:last-child { margin-bottom: 0; }
+
+  .donate-box { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line-soft); text-align: center; }
+  .donate-box .donate-copy { font-style: italic; }
+  .donate-btns { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+  .donate-btns a, .donate-btns button {
+    font: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; text-decoration: none;
+    padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--paper); color: var(--ink);
+  }
+  .donate-btns a:hover, .donate-btns button:hover { border-color: var(--teal); color: var(--teal); }
+  .donate-qrs { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-top: 10px; }
+  .donate-qrs figure { margin: 0; text-align: center; }
+  .donate-qrs img { border-radius: 10px; background: #fff; padding: 6px; display: block; }
+  .donate-qrs figcaption { font-size: 0.7rem; color: var(--ink-soft); margin-top: 4px; }
 </style>
 
 <div class="wrap">
@@ -234,9 +248,22 @@
 
   <footer id="como-ganamos">
     <div class="footer-card">
-      <p><b>Cómo ganamos dinero:</b> Tarifas Claras es gratis para quien lo usa. Algunos proveedores nos pagan una comisión si te registras a través de nuestro enlace — lo marcamos siempre como "enlace de afiliado" y nunca cambia el orden del ranking, que se calcula solo por coste total.</p>
+      <p><b>Cómo ganamos dinero:</b> esta herramienta es gratis, no cobra nada a nadie, y no hay letra pequeña con comisiones ocultas porque no hay nada que ocultar.</p>
       <p>Servicio informativo. No custodiamos fondos, no ejecutamos operaciones ni damos recomendaciones personalizadas — comparamos precios públicos para que decidas tú.</p>
       <p class="brandnote"><b>Tarifas Claras</b> es el producto hermano de Zntrphy bajo fnalysis.com, con dominio y código propios: Zntrphy nunca toca la red — es su garantía —, y esta herramienta necesita hacerlo por definición. Zntrphy genera tus claves; esto te dice qué te cuesta moverlas.</p>
+
+      <div class="donate-box">
+        <p class="donate-copy">Es triste de pedir, pero es más triste tener que robar. Si quieres aportar tu granito de arena y hacer que seamos unos seres de luz aún más resplandecientes, puedes donar en los siguientes enlaces — recuerda que compartir es amar, y donar es amar locamente.</p>
+        <div class="donate-btns">
+          <a href="lightning:securemiaow241@walletofsatoshi.com">Lightning ⚡</a>
+          <a href="https://ko-fi.com/fnalysis" target="_blank" rel="noopener">Donar por tarjeta (Ko-fi) 💛</a>
+          <button type="button" onclick="navigator.clipboard.writeText('bc1q0vnddahansq3xgx6a3qjrfns2993a5jjw4d60det2kdmaulduxgq95rheu'); this.textContent='Copiado ✓'; setTimeout(()=>this.textContent='Copiar dirección on-chain',1500)">Copiar dirección on-chain</button>
+        </div>
+        <div class="donate-qrs">
+          <figure><img src="qr-lightning.png" alt="Código QR para donar por Lightning" width="120" height="120"><figcaption>Lightning</figcaption></figure>
+          <figure><img src="qr-onchain.png" alt="Código QR para donar on-chain" width="120" height="120"><figcaption>On-chain</figcaption></figure>
+        </div>
+      </div>
     </div>
   </footer>
 
