@@ -272,20 +272,20 @@
   // ============================================================
   var DATA = {
     bancos: [
-      { name: "Revolut", fee: { type: "flat_plus_pct", flat: 3, currency: "EUR", pct: 0 }, external: true, note: "~3 €, redes limitadas", affiliate: true, href: "#" },
-      { name: "Swissquote", fee: { type: "flat", flat: 10, currency: "USD" }, external: true, note: "10 USD fijos", affiliate: true, href: "#" },
-      { name: "PayPal (UE)", fee: { type: "pct", pct: 1 }, external: true, note: "+ fee de red", affiliate: true, href: "#" },
+      { name: "Revolut", fee: { type: "flat_plus_pct", flat: 3, currency: "EUR", pct: 0 }, external: true, note: "~3 €, redes limitadas", affiliate: false, href: null },
+      { name: "Swissquote", fee: { type: "flat", flat: 10, currency: "USD" }, external: true, note: "10 USD fijos", affiliate: false, href: null },
+      { name: "PayPal (UE)", fee: { type: "pct", pct: 1 }, external: true, note: "+ fee de red", affiliate: false, href: null },
       { name: "PayPal (Reino Unido)", fee: { type: "blocked" }, external: false, note: "tu BTC se queda ahí", affiliate: false, href: null },
     ],
     cex: [
-      { name: "Kraken", fee: { type: "flat_btc", btc: 0.000015 }, affiliate: true, href: "#" },
-      { name: "Binance", fee: { type: "flat_btc", btc: 0.0000164 }, affiliate: true, href: "#" },
-      { name: "Coinbase", fee: { type: "flat_btc", btc: 0.00015 }, affiliate: true, href: "#" },
-      { name: "Bit2Me", fee: { type: "flat_btc", btc: 0.0002 }, affiliate: true, href: "#" },
+      { name: "Kraken", fee: { type: "flat_btc", btc: 0.000015 }, affiliate: true, href: "https://proinvite.kraken.com/rrru/nvx3vysw" },
+      { name: "Binance", fee: { type: "flat_btc", btc: 0.0000164 }, affiliate: false, href: null },
+      { name: "Coinbase", fee: { type: "flat_btc", btc: 0.00015 }, affiliate: false, href: null },
+      { name: "Bit2Me", fee: { type: "flat_btc", btc: 0.0002 }, affiliate: false, href: null },
     ],
     dex: [
       { name: "RoboSats", platformPct: 0.20, premiumPct: 2, href: "#" },
-      { name: "Hodl Hodl", platformPct: 0.50, premiumPct: 3, href: "#" },
+      { name: "Hodl Hodl", platformPct: 0.50, premiumPct: 3, href: "https://hodlhodl.com/join/ETNJ" },
       { name: "Bisq", platformPct: 0.75, premiumPct: 3, href: "#" },
       { name: "Peach Bitcoin (vendedor)", platformPct: 0, premiumPct: 4, href: "#" },
     ],
