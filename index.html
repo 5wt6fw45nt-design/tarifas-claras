@@ -1,63 +1,27 @@
 <title>Tarifas Claras</title>
 <meta name="description" content="Cuánto cuesta mover tu BTC — bancos, exchanges, plataformas descentralizadas y la red — con la tarifa de red en vivo. Un proyecto de fnalysis.com.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
   :root {
-    --paper: #F6F4EE;
-    --paper-raised: #FFFFFF;
-    --ink: #16211D;
-    --ink-soft: #4B5750;
-    --line: #DAD5C7;
-    --line-soft: #E8E4D8;
-    --teal: #0C6B57;
-    --teal-soft: #E3F0EB;
-    --gold: #A9762E;
-    --gold-soft: #F3E9D8;
-    --slate: #35507A;
-    --slate-soft: #E6EBF2;
-    --plum: #7A4B63;
-    --plum-soft: #F1E3EA;
-    --good: #1C7A4D;
-    --good-soft: #E1F1E7;
-    --warn: #9A6A0C;
-    --warn-soft: #F6EBD3;
-    --bad: #A23B2E;
-    --bad-soft: #FAE4E0;
+    /* Paleta de fnalysis.com */
+    --paper: #0b0e14; --paper-raised: #131826; --ink: #e8ecf5; --ink-soft: #8590ad;
+    --line: #232b42; --line-soft: #1e2438;
+    --teal: #20e3a2; --teal-soft: rgba(32,227,162,0.14);
+    --gold: #ffcb47; --gold-soft: rgba(255,203,71,0.14);
+    --slate: #7c5cff; --slate-soft: rgba(124,92,255,0.14);
+    --plum: #ff5c7a; --plum-soft: rgba(255,92,122,0.14);
+    --good: #20e3a2; --good-soft: rgba(32,227,162,0.14);
+    --warn: #ffcb47; --warn-soft: rgba(255,203,71,0.14);
+    --bad: #ff5c7a; --bad-soft: rgba(255,92,122,0.14);
     --accent: var(--teal);
-    --shadow: 0 1px 2px rgba(22,33,29,0.06), 0 8px 24px -12px rgba(22,33,29,0.18);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #12181B; --paper-raised: #1A2226; --ink: #ECEAE2; --ink-soft: #A9B2AC;
-      --line: #313B3B; --line-soft: #263030;
-      --teal: #3FBF9C; --teal-soft: #163530;
-      --gold: #D8AA5E; --gold-soft: #3A2E17;
-      --slate: #8DA6D6; --slate-soft: #202B3E;
-      --plum: #D79FB8; --plum-soft: #3A2530;
-      --good: #4BB07D; --good-soft: #17301F;
-      --warn: #D6A53C; --warn-soft: #362A11;
-      --bad: #E17362; --bad-soft: #3A1E19;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #12181B; --paper-raised: #1A2226; --ink: #ECEAE2; --ink-soft: #A9B2AC;
-    --line: #313B3B; --line-soft: #263030;
-    --teal: #3FBF9C; --teal-soft: #163530;
-    --gold: #D8AA5E; --gold-soft: #3A2E17;
-    --slate: #8DA6D6; --slate-soft: #202B3E;
-    --plum: #D79FB8; --plum-soft: #3A2530;
-    --good: #4BB07D; --good-soft: #17301F;
-    --warn: #D6A53C; --warn-soft: #362A11;
-    --bad: #E17362; --bad-soft: #3A1E19;
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
   }
 
   * { box-sizing: border-box; }
   body {
     background: var(--paper); color: var(--ink);
-    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     padding-inline: 20px; padding-block: 28px 60px;
   }
   .wrap { max-width: 1040px; margin: 0 auto; }
@@ -66,7 +30,7 @@
   .topbar { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;
     border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 22px; }
   .brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-  .brand h1 { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.7rem; margin: 0; letter-spacing: -0.01em; }
+  .brand h1 { font-family: inherit; font-weight: 700; font-size: 1.7rem; margin: 0; letter-spacing: -0.01em; }
   .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); align-self: center; }
   .brand small { color: var(--ink-soft); font-size: 0.82rem; }
   .topbar-right { display: flex; align-items: center; gap: 14px; font-size: 0.82rem; color: var(--ink-soft); }
@@ -112,7 +76,7 @@
   .panel { display: none; } .panel.active { display: block; }
   .card { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
   .card-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 18px 20px; border-bottom: 1px solid var(--line-soft); }
-  .card-head h2 { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.2rem; margin: 0; }
+  .card-head h2 { font-family: inherit; font-weight: 700; font-size: 1.2rem; margin: 0; }
   .card-head .scenario { font-size: 0.84rem; color: var(--ink-soft); }
   .scenario b { color: var(--ink); font-weight: 600; }
 
@@ -147,9 +111,24 @@
     .affiliate-tag { display: none; }
     .amountbar .approx { margin-left: 0; width: 100%; }
   }
+
+  .fn-crumb { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    font-size: 0.76rem; color: var(--ink-soft); padding-bottom: 10px; margin-bottom: 14px; }
+  .fn-crumb-brand { font-weight: 600; letter-spacing: 0.02em; color: var(--ink-soft); }
+  .fn-crumb-brand b { color: var(--ink); }
+  .fn-crumb-back { color: var(--ink-soft); text-decoration: none; }
+  .fn-crumb-back:hover { color: var(--teal); }
+  .footer-card { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); padding: 20px 22px; }
+  .footer-card p { margin: 0 0 10px; }
+  .footer-card p:last-child { margin-bottom: 0; }
 </style>
 
 <div class="wrap">
+
+  <div class="fn-crumb">
+    <span class="fn-crumb-brand">fnalysis <b>/ TARIFAS CLARAS</b></span>
+    <a href="/" class="fn-crumb-back">&larr; volver a fnalysis</a>
+  </div>
 
   <div class="topbar">
     <div class="brand">
@@ -254,9 +233,11 @@
   </section>
 
   <footer id="como-ganamos">
-    <p><b>Cómo ganamos dinero:</b> Tarifas Claras es gratis para quien lo usa. Algunos proveedores nos pagan una comisión si te registras a través de nuestro enlace — lo marcamos siempre como "enlace de afiliado" y nunca cambia el orden del ranking, que se calcula solo por coste total.</p>
-    <p>Servicio informativo. No custodiamos fondos, no ejecutamos operaciones ni damos recomendaciones personalizadas — comparamos precios públicos para que decidas tú.</p>
-    <p class="brandnote"><b>Tarifas Claras</b> es el producto hermano de Zntrphy bajo fnalysis.com, con dominio y código propios: Zntrphy nunca toca la red — es su garantía —, y esta herramienta necesita hacerlo por definición. Zntrphy genera tus claves; esto te dice qué te cuesta moverlas.</p>
+    <div class="footer-card">
+      <p><b>Cómo ganamos dinero:</b> Tarifas Claras es gratis para quien lo usa. Algunos proveedores nos pagan una comisión si te registras a través de nuestro enlace — lo marcamos siempre como "enlace de afiliado" y nunca cambia el orden del ranking, que se calcula solo por coste total.</p>
+      <p>Servicio informativo. No custodiamos fondos, no ejecutamos operaciones ni damos recomendaciones personalizadas — comparamos precios públicos para que decidas tú.</p>
+      <p class="brandnote"><b>Tarifas Claras</b> es el producto hermano de Zntrphy bajo fnalysis.com, con dominio y código propios: Zntrphy nunca toca la red — es su garantía —, y esta herramienta necesita hacerlo por definición. Zntrphy genera tus claves; esto te dice qué te cuesta moverlas.</p>
+    </div>
   </footer>
 
 </div>
