@@ -248,20 +248,21 @@
 
   <footer id="como-ganamos">
     <div class="footer-card">
-      <p class="brandnote"><b>Tarifas Claras</b> es el producto hermano de Zntrphy bajo fnalysis.com, con dominio y código propios: Zntrphy nunca toca la red — es su garantía —, y esta herramienta necesita hacerlo por definición. Zntrphy genera tus claves; esto te dice qué te cuesta moverlas.</p>
-
-      <div class="donate-box">
-        <p class="donate-copy">Es triste de pedir, pero es más triste tener que robar. Si quieres aportar tu granito de arena y hacer que seamos unos seres de luz aún más resplandecientes, puedes donar en los siguientes enlaces — recuerda que compartir es amar, y donar es amar locamente.</p>
+      <div class="donate-box" style="margin-top:0; padding-top:0; border-top:none;">
+        <p class="donate-copy">Es triste de pedir, pero es más triste tener que robar. Si quieres aportar tu granito de arena y hacer que seamos unos seres de luz aún más resplandecientes, puedes donar en los siguientes enlaces. Recuerda que compartir es amar, y donar es amar locamente.</p>
         <div class="donate-btns">
           <a href="lightning:securemiaow241@walletofsatoshi.com">Lightning ⚡</a>
           <a href="https://ko-fi.com/fnalysis" target="_blank" rel="noopener">Donar por tarjeta (Ko-fi) 💛</a>
           <button type="button" onclick="navigator.clipboard.writeText('bc1q0vnddahansq3xgx6a3qjrfns2993a5jjw4d60det2kdmaulduxgq95rheu'); this.textContent='Copiado ✓'; setTimeout(()=>this.textContent='Copiar dirección on-chain',1500)">Copiar dirección on-chain</button>
+          <button type="button" onclick="(navigator.share ? navigator.share({title:'Tarifas Claras', text:'Cuánto cuesta de verdad mover tu BTC, comparado.', url:location.href}) : (navigator.clipboard.writeText(location.href), this.textContent='Enlace copiado ✓', setTimeout(()=>this.textContent='Compartir 🔗',1500)))">Compartir 🔗</button>
         </div>
         <div class="donate-qrs">
           <figure><img src="qr-lightning.png" alt="Código QR para donar por Lightning" width="120" height="120"><figcaption>Lightning</figcaption></figure>
           <figure><img src="qr-onchain.png" alt="Código QR para donar on-chain" width="120" height="120"><figcaption>On-chain</figcaption></figure>
         </div>
       </div>
+
+      <p class="brandnote" style="margin-top:16px; padding-top:16px; border-top:1px solid var(--line-soft);"><b>Tarifas Claras</b> es el producto hermano de Zntrphy bajo fnalysis.com, con dominio y código propios. Zntrphy nunca toca la red, es su garantía, y esta herramienta necesita hacerlo por definición. Zntrphy genera tus claves, y esto te dice qué te cuesta moverlas.</p>
     </div>
   </footer>
 
