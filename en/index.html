@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tarifas Claras</title>
-<meta name="description" content="Cuánto cuesta mover tu BTC — bancos, exchanges, plataformas descentralizadas y la red — con la tarifa de red en vivo. Un proyecto de fnalysis.com.">
+<title>Tarifas Claras — Bitcoin transfer fees, compared</title>
+<meta name="description" content="How much it really costs to move your BTC: banks, exchanges, decentralized platforms and the network, with the live network fee. A project by fnalysis.com.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
@@ -155,11 +155,11 @@
 
   <div class="fn-crumb">
     <div class="fn-crumb-left">
-      <a href="/" class="fn-crumb-brand"><img src="/fnalysis-logo.png" alt="fnalysis" class="fn-crumb-logo"> fnalysis <b>/ TARIFAS CLARAS</b></a>
-      <a href="/" class="fn-crumb-back">&larr; volver a fnalysis</a>
+      <a href="/en/" class="fn-crumb-brand"><img src="/fnalysis-logo.png" alt="fnalysis" class="fn-crumb-logo"> fnalysis <b>/ TARIFAS CLARAS</b></a>
+      <a href="/en/" class="fn-crumb-back">&larr; back to fnalysis</a>
     </div>
     <div class="fn-crumb-right">
-      <a href="/en/tarifas/" class="lang-switch">EN</a>
+      <a href="/tarifas/" class="lang-switch">ES</a>
     </div>
   </div>
 
@@ -167,121 +167,121 @@
     <div class="brand">
       <span class="dot"></span>
       <h1>Tarifas Claras</h1>
-      <small>cuánto cuesta mover tu BTC</small>
+      <small>how much it really costs to move your BTC</small>
     </div>
     <div class="topbar-right">
-      <span id="status" class="statuspill"><span class="pulse"></span> Conectando con mempool.space…</span>
-      <a href="#como-ganamos">Cómo ganamos dinero</a>
+      <span id="status" class="statuspill"><span class="pulse"></span> Connecting to mempool.space…</span>
+      <a href="#como-ganamos">How we make money</a>
     </div>
   </div>
 
   <div class="lede">
-    <p>Comparamos lo que de verdad cuesta mover TU Bitcoin, a otra wallet, a otra persona, o cambiándolo a otra divisa, pasando por un banco, un exchange, una plataforma descentralizada, o solo la red.</p>
+    <p>We compare what it really costs to move YOUR Bitcoin, to another wallet, to another person, or converting it to another currency, through a bank, an exchange, a decentralized platform, or just the network.</p>
   </div>
 
   <div class="amountbar">
-    <label for="btc-amount">Importe a mover</label>
-    <input type="text" id="btc-amount" class="num" value="0.05" inputmode="decimal" aria-label="Cantidad de BTC">
+    <label for="btc-amount">Amount to move</label>
+    <input type="text" id="btc-amount" class="num" value="0.05" inputmode="decimal" aria-label="BTC amount">
     <span>BTC</span>
     <div class="quicksums">
-      <button type="button" data-set="0.001">0,001</button>
-      <button type="button" data-set="0.01">0,01</button>
-      <button type="button" data-set="0.05">0,05</button>
-      <button type="button" data-set="0.25">0,25</button>
+      <button type="button" data-set="0.001">0.001</button>
+      <button type="button" data-set="0.01">0.01</button>
+      <button type="button" data-set="0.05">0.05</button>
+      <button type="button" data-set="0.25">0.25</button>
       <button type="button" data-set="1">1</button>
     </div>
     <span class="approx">≈ <b id="approx-eur">…</b></span>
   </div>
 
-  <div class="tabs" role="tablist" aria-label="Vía para mover tu BTC">
-    <button class="tab" data-domain="bancos" role="tab" aria-selected="true">Bancos</button>
+  <div class="tabs" role="tablist" aria-label="Way to move your BTC">
+    <button class="tab" data-domain="bancos" role="tab" aria-selected="true">Banks</button>
     <button class="tab" data-domain="cex" role="tab" aria-selected="false">Exchanges (CEX)</button>
-    <button class="tab" data-domain="dex" role="tab" aria-selected="false">Descentralizado (DEX/P2P)</button>
-    <button class="tab" data-domain="red" role="tab" aria-selected="false">Solo la red <span class="livetag">● en vivo</span></button>
+    <button class="tab" data-domain="dex" role="tab" aria-selected="false">Decentralized (DEX/P2P)</button>
+    <button class="tab" data-domain="red" role="tab" aria-selected="false">Network only <span class="livetag">● live</span></button>
   </div>
-  <p class="custody-note">Ordenado de menos a más autocustodia: un banco decide si te deja salir; la red nunca te lo pregunta.</p>
+  <p class="custody-note">Ordered from least to most self-custody: a bank decides whether it lets you leave; the network never asks.</p>
 
   <!-- ===================== BANCOS ===================== -->
   <section class="panel active" id="panel-bancos">
-    <span class="refnote">Tarifas revisadas a mano · última revisión: 15 sep. 2026</span>
+    <span class="refnote">Fees checked by hand · last reviewed: Sep 15, 2026</span>
     <div class="card">
       <div class="card-head">
-        <h2>Sacar tu BTC de un banco a tu wallet</h2>
+        <h2>Withdrawing your BTC from a bank to your wallet</h2>
         <div class="scenario"><span id="scenario-bancos">…</span></div>
       </div>
       <div style="overflow-x:auto"><table>
-        <thead><tr><th>Banco / bróker</th><th class="num">Fee de retiro</th><th class="num">¿Retiro externo?</th><th class="num">Coste total</th><th></th></tr></thead>
+        <thead><tr><th>Bank / broker</th><th class="num">Withdrawal fee</th><th class="num">External withdrawal?</th><th class="num">Total cost</th><th></th></tr></thead>
         <tbody id="rows-bancos"></tbody>
       </table></div>
-      <div class="card-foot">El coste más alto no siempre es un número: varios bancos directamente no dejan sacar el BTC a una wallet propia. Eso también es un precio.</div>
+      <div class="card-foot">The highest cost is not always a number: several banks simply will not let you withdraw BTC to your own wallet. That is a cost too.</div>
     </div>
   </section>
 
   <!-- ===================== CEX ===================== -->
   <section class="panel" id="panel-cex">
-    <span class="refnote">Tarifas revisadas a mano · última revisión: 15 sep. 2026</span>
+    <span class="refnote">Fees checked by hand · last reviewed: Sep 15, 2026</span>
     <div class="card">
       <div class="card-head">
-        <h2>Retirar tu BTC de un exchange</h2>
+        <h2>Withdrawing your BTC from an exchange</h2>
         <div class="scenario"><span id="scenario-cex">…</span></div>
       </div>
       <div style="overflow-x:auto"><table>
-        <thead><tr><th>Exchange</th><th class="num">Fee de retiro</th><th class="num">Coste total</th><th></th></tr></thead>
+        <thead><tr><th>Exchange</th><th class="num">Withdrawal fee</th><th class="num">Total cost</th><th></th></tr></thead>
         <tbody id="rows-cex"></tbody>
       </table></div>
-      <div class="card-foot">Fee de retiro publicado por cada exchange, convertido a euros al precio actual de BTC. No incluye la comisión de haberlo comprado ahí.</div>
+      <div class="card-foot">Withdrawal fee as published by each exchange, converted to euros at the current BTC price. Does not include the fee for buying it there.</div>
     </div>
   </section>
 
   <!-- ===================== DEX / P2P ===================== -->
   <section class="panel" id="panel-dex">
-    <span class="refnote">Tarifas revisadas a mano · última revisión: 15 sep. 2026</span>
+    <span class="refnote">Fees checked by hand · last reviewed: Sep 15, 2026</span>
     <div class="card">
       <div class="card-head">
-        <h2>Vender tu BTC de forma descentralizada</h2>
+        <h2>Selling your BTC in a decentralized way</h2>
         <div class="scenario"><span id="scenario-dex">…</span></div>
       </div>
       <div style="overflow-x:auto"><table>
-        <thead><tr><th>Plataforma</th><th class="num">Fee de plataforma</th><th class="num">Prima típica</th><th class="num">Coste total</th><th></th></tr></thead>
+        <thead><tr><th>Platform</th><th class="num">Platform fee</th><th class="num">Typical premium</th><th class="num">Total cost</th><th></th></tr></thead>
         <tbody id="rows-dex"></tbody>
       </table></div>
-      <div class="card-foot">La prima sobre precio de mercado (spread real P2P) suele pesar más que la comisión de la plataforma — por eso va en columna propia, no escondida dentro del "fee".</div>
+      <div class="card-foot">The premium over market price (real P2P spread) usually weighs more than the platform fee, which is why it gets its own column instead of hiding inside the "fee".</div>
     </div>
   </section>
 
   <!-- ===================== RED BITCOIN ===================== -->
   <section class="panel" id="panel-red">
-    <span class="refnote">Fee de red y precio en vivo vía <a href="https://mempool.space" target="_blank" rel="noopener" style="color:inherit">mempool.space</a></span>
+    <span class="refnote">Network fee and live price via <a href="https://mempool.space" target="_blank" rel="noopener" style="color:inherit">mempool.space</a></span>
     <div class="card">
       <div class="card-head">
-        <h2>Enviar directamente por la red</h2>
+        <h2>Sending directly over the network</h2>
         <div class="scenario"><span id="scenario-red">…</span></div>
       </div>
       <div style="overflow-x:auto"><table>
-        <thead><tr><th>Vía</th><th class="num">Tarifa de red</th><th class="num">Tiempo est.</th><th class="num">Coste total</th><th></th></tr></thead>
+        <thead><tr><th>Method</th><th class="num">Network fee</th><th class="num">Est. time</th><th class="num">Total cost</th><th></th></tr></thead>
         <tbody id="rows-red"></tbody>
       </table></div>
-      <div class="card-foot" id="foot-red">Cargando datos en vivo…</div>
+      <div class="card-foot" id="foot-red">Loading live data…</div>
     </div>
   </section>
 
   <footer id="como-ganamos">
     <div class="footer-card">
       <div class="donate-box" style="margin-top:0; padding-top:0; border-top:none;">
-        <p class="donate-copy">Es triste de pedir, pero es más triste tener que robar. Si quieres aportar tu granito de arena y hacer que seamos unos seres de luz aún más resplandecientes, puedes donar en los siguientes enlaces. Recuerda que compartir es amar, y donar es amar locamente.</p>
+        <p class="donate-copy">It is sad to have to ask, but sadder still to have to steal. If you want to chip in and help us be even more radiant beings of light, you can donate through the links below. Remember that sharing is caring, and donating is caring a little too much.</p>
         <div class="donate-btns">
           <a href="lightning:securemiaow241@walletofsatoshi.com">Lightning ⚡</a>
-          <a href="https://ko-fi.com/fnalysis" target="_blank" rel="noopener">Donar por tarjeta (Ko-fi) 💛</a>
-          <button type="button" onclick="navigator.clipboard.writeText('bc1q0vnddahansq3xgx6a3qjrfns2993a5jjw4d60det2kdmaulduxgq95rheu'); this.textContent='Copiado ✓'; setTimeout(()=>this.textContent='Copiar dirección on-chain',1500)">Copiar dirección on-chain</button>
-          <button type="button" onclick="(navigator.share ? navigator.share({title:'Tarifas Claras', text:'Cuánto cuesta de verdad mover tu BTC, comparado.', url:location.href}) : (navigator.clipboard.writeText(location.href), this.textContent='Enlace copiado ✓', setTimeout(()=>this.textContent='Compartir 🔗',1500)))">Compartir 🔗</button>
+          <a href="https://ko-fi.com/fnalysis" target="_blank" rel="noopener">Donate by card (Ko-fi) 💛</a>
+          <button type="button" onclick="navigator.clipboard.writeText('bc1q0vnddahansq3xgx6a3qjrfns2993a5jjw4d60det2kdmaulduxgq95rheu'); this.textContent='Copied ✓'; setTimeout(()=>this.textContent='Copy on-chain address',1500)">Copy on-chain address</button>
+          <button type="button" onclick="(navigator.share ? navigator.share({title:'Tarifas Claras', text:'What it really costs to move your BTC, compared.', url:location.href}) : (navigator.clipboard.writeText(location.href), this.textContent='Link copied ✓', setTimeout(()=>this.textContent='Share 🔗',1500)))">Share 🔗</button>
         </div>
         <div class="donate-qrs">
-          <figure><img src="qr-lightning.png" alt="Código QR para donar por Lightning" width="120" height="120"><figcaption>Lightning</figcaption></figure>
-          <figure><img src="qr-onchain.png" alt="Código QR para donar on-chain" width="120" height="120"><figcaption>On-chain</figcaption></figure>
+          <figure><img src="qr-lightning.png" alt="QR code to donate via Lightning" width="120" height="120"><figcaption>Lightning</figcaption></figure>
+          <figure><img src="qr-onchain.png" alt="QR code to donate on-chain" width="120" height="120"><figcaption>On-chain</figcaption></figure>
         </div>
       </div>
 
-      <p class="brandnote" style="margin-top:16px; padding-top:16px; border-top:1px solid var(--line-soft);"><b>Tarifas Claras</b> es el producto hermano de Zntrphy bajo fnalysis.com, con dominio y código propios. Zntrphy nunca toca la red, es su garantía, y esta herramienta necesita hacerlo por definición. Zntrphy genera tus claves, y esto te dice qué te cuesta moverlas.</p>
+      <p class="brandnote" style="margin-top:16px; padding-top:16px; border-top:1px solid var(--line-soft);"><b>Tarifas Claras</b> is the sister product of Zntrphy under fnalysis.com, with its own domain and code. Zntrphy never touches the network, that is its guarantee, and this tool needs to by definition. Zntrphy generates your keys, and this tells you what it costs to move them.</p>
     </div>
   </footer>
 
@@ -292,16 +292,16 @@
   "use strict";
 
   // ============================================================
-  // DATOS MANTENIDOS A MANO — actualízalos aquí, no en el HTML.
+  // DATA MAINTAINED BY HAND, update it here, not in the HTML.
   // "pct" = porcentaje sobre el valor movido. "flat" = importe fijo
   // en la divisa indicada. "blocked" = no se puede retirar externamente.
   // ============================================================
   var DATA = {
     bancos: [
-      { name: "Revolut", fee: { type: "flat_plus_pct", flat: 3, currency: "EUR", pct: 0 }, external: true, note: "~3 €, redes limitadas", affiliate: false, href: null },
-      { name: "Swissquote", fee: { type: "flat", flat: 10, currency: "USD" }, external: true, note: "10 USD fijos", affiliate: false, href: null },
-      { name: "PayPal (UE)", fee: { type: "pct", pct: 1 }, external: true, note: "+ fee de red", affiliate: false, href: null },
-      { name: "PayPal (Reino Unido)", fee: { type: "blocked" }, external: false, note: "tu BTC se queda ahí", affiliate: false, href: null },
+      { name: "Revolut", fee: { type: "flat_plus_pct", flat: 3, currency: "EUR", pct: 0 }, external: true, note: "~€3, limited networks", affiliate: false, href: null },
+      { name: "Swissquote", fee: { type: "flat", flat: 10, currency: "USD" }, external: true, note: "flat $10", affiliate: false, href: null },
+      { name: "PayPal (EU)", fee: { type: "pct", pct: 1 }, external: true, note: "+ network fee", affiliate: false, href: null },
+      { name: "PayPal (UK)", fee: { type: "blocked" }, external: false, note: "your BTC stays there", affiliate: false, href: null },
     ],
     cex: [
       { name: "Kraken", fee: { type: "flat_btc", btc: 0.000015 }, affiliate: true, href: "https://proinvite.kraken.com/rrru/nvx3vysw" },
@@ -313,10 +313,10 @@
       { name: "RoboSats", platformPct: 0.20, premiumPct: 2, href: "#" },
       { name: "Hodl Hodl", platformPct: 0.50, premiumPct: 3, href: "https://hodlhodl.com/join/ETNJ" },
       { name: "Bisq", platformPct: 0.75, premiumPct: 3, href: "#" },
-      { name: "Peach Bitcoin (vendedor)", platformPct: 0, premiumPct: 4, href: "#" },
+      { name: "Peach Bitcoin (seller)", platformPct: 0, premiumPct: 4, href: "#" },
     ],
   };
-  var TX_VBYTES = 140; // tamaño típico de una transacción de una entrada / dos salidas
+  var TX_VBYTES = 140; // typical size of a one-input / two-output transaction
 
   // ============================================================
   // ESTADO EN VIVO
@@ -324,12 +324,12 @@
   var state = { btcEUR: 62000, btcUSD: 66000, fees: { fastestFee: 28, halfHourFee: 12, hourFee: 8 }, live: false };
 
   function fmtEUR(n) {
-    if (n < 0.01 && n > 0) return "<0,01 €";
-    return n.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+    if (n < 0.01 && n > 0) return "< €0.01";
+    return "€" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
   function pill(tier) {
     var cls = tier === "good" ? "good" : tier === "warn" ? "warn" : "bad";
-    var label = tier === "good" ? "barato" : tier === "warn" ? "medio" : "caro";
+    var label = tier === "good" ? "cheap" : tier === "warn" ? "mid" : "expensive";
     return '<span class="pill ' + cls + '">' + label + "</span>";
   }
   function tierFor(costEUR, cheap, mid) {
@@ -338,7 +338,7 @@
     return "bad";
   }
   function affTag(row) {
-    return row.affiliate ? '<span class="affiliate-tag">enlace de afiliado</span>' : "";
+    return row.affiliate ? '<span class="affiliate-tag">affiliate link</span>' : "";
   }
   function ctaCell(row, label) {
     if (row.href === null) return '<span class="affiliate-tag" style="margin-top:0">' + (row.note || "") + "</span>";
@@ -353,7 +353,7 @@
   function renderBancos() {
     var amt = amountBTC(), valueEUR = amt * state.btcEUR;
     var rows = DATA.bancos.map(function (r) {
-      var costEUR, costCell, extCell = r.external ? "Sí" : "No";
+      var costEUR, costCell, extCell = r.external ? "Yes" : "No";
       if (r.fee.type === "blocked") {
         costCell = '<span class="pill bad">no disponible</span>';
       } else {
@@ -366,10 +366,10 @@
         '<td class="num">' + (r.fee.type === "blocked" ? "—" : (r.note || "-")) + "</td>" +
         '<td class="num">' + extCell + "</td>" +
         '<td class="num">' + costCell + "</td>" +
-        "<td>" + ctaCell(r, "Ir al proveedor") + "</td></tr>";
+        "<td>" + ctaCell(r, "Go to provider") + "</td></tr>";
     });
     document.getElementById("rows-bancos").innerHTML = rows.join("");
-    document.getElementById("scenario-bancos").innerHTML = "Moviendo <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ") a una wallet propia";
+    document.getElementById("scenario-bancos").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ") to your own wallet";
   }
 
   function renderCex() {
@@ -379,10 +379,10 @@
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--teal)\"></span>" + r.name + "</div></td>" +
         '<td class="num">' + r.fee.btc.toFixed(7) + " BTC</td>" +
         '<td class="num"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 2, 6)) + "</td>" +
-        "<td>" + ctaCell(r, "Ir al proveedor") + "</td></tr>";
+        "<td>" + ctaCell(r, "Go to provider") + "</td></tr>";
     });
     document.getElementById("rows-cex").innerHTML = rows.join("");
-    document.getElementById("scenario-cex").innerHTML = "Moviendo <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ") a una wallet propia";
+    document.getElementById("scenario-cex").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ") to your own wallet";
   }
 
   function renderDex() {
@@ -394,10 +394,10 @@
         '<td class="num">' + r.platformPct.toFixed(2) + " %</td>" +
         '<td class="num">~' + r.premiumPct + " %</td>" +
         '<td class="num"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 40, 100)) + "</td>" +
-        '<td><a class="cta" href="' + r.href + '">Ir a la plataforma</a></td></tr>';
+        '<td><a class="cta" href="' + r.href + '">Go to platform</a></td></tr>';
     });
     document.getElementById("rows-dex").innerHTML = rows.join("");
-    document.getElementById("scenario-dex").innerHTML = "Moviendo <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + "), sin intermediario custodio";
+    document.getElementById("scenario-dex").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + "), with no custodial intermediary";
   }
 
   function renderRed() {
@@ -408,22 +408,22 @@
     var lnEUR = Math.max(1 / 100000000 * state.btcEUR, valueEUR * 0.0001);
     var lnTier = lnEUR <= econEUR ? "good" : lnEUR <= prioEUR ? "warn" : "bad";
     var rows = [
-      { name: "Lightning", rate: "~1 sat + 0,01 %", time: "&lt; 5 seg", cost: lnEUR, tier: lnTier, href: "#" },
-      { name: "On-chain · económica", rate: econSat + " sat/vB", time: "~1-3 bloques", cost: econEUR, tier: tierFor(econEUR, 1, 3), href: "https://mempool.space" },
-      { name: "On-chain · prioridad", rate: prioSat + " sat/vB", time: "próximo bloque", cost: prioEUR, tier: tierFor(prioEUR, 1, 3), href: "https://mempool.space" },
+      { name: "Lightning", rate: "~1 sat + 0.01%", time: "&lt; 5 sec", cost: lnEUR, tier: lnTier, href: "#" },
+      { name: "On-chain · economy", rate: econSat + " sat/vB", time: "~1-3 blocks", cost: econEUR, tier: tierFor(econEUR, 1, 3), href: "https://mempool.space" },
+      { name: "On-chain · priority", rate: prioSat + " sat/vB", time: "next block", cost: prioEUR, tier: tierFor(prioEUR, 1, 3), href: "https://mempool.space" },
     ];
     var html = rows.map(function (r) {
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--gold)\"></span>" + r.name + "</div></td>" +
         '<td class="num">' + r.rate + "</td>" +
         '<td class="num">' + r.time + "</td>" +
         '<td class="num"><span class="final">' + fmtEUR(r.cost) + "</span> " + pill(r.tier) + "</td>" +
-        '<td><a class="cta" href="' + r.href + '" target="_blank" rel="noopener">Ver mempool</a></td></tr>';
+        '<td><a class="cta" href="' + r.href + '" target="_blank" rel="noopener">View mempool</a></td></tr>';
     }).join("");
     document.getElementById("rows-red").innerHTML = html;
-    document.getElementById("scenario-red").innerHTML = "Transacción de ~" + TX_VBYTES + " vB · de <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ")";
+    document.getElementById("scenario-red").innerHTML = "~" + TX_VBYTES + " vB transaction · of <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ")";
     document.getElementById("foot-red").textContent = state.live
-      ? "Datos en vivo de mempool.space — fee de red y precio de BTC actualizados hace unos segundos."
-      : "Sin conexión en vivo ahora mismo — mostrando la última referencia disponible (no son datos de mercado actuales).";
+      ? "Live data from mempool.space, network fee and BTC price updated a few seconds ago."
+      : "No live connection right now, showing the latest available reference (not current market data).";
   }
 
   function renderAll() {
@@ -435,10 +435,10 @@
     var el = document.getElementById("status");
     if (live) {
       el.classList.remove("offline");
-      el.innerHTML = '<span class="pulse"></span> En vivo · mempool.space';
+      el.innerHTML = '<span class="pulse"></span> Live · mempool.space';
     } else {
       el.classList.add("offline");
-      el.innerHTML = '<span class="pulse"></span> Sin conexión en vivo — datos de referencia';
+      el.innerHTML = '<span class="pulse"></span> No live connection — reference data';
     }
   }
 
@@ -446,7 +446,7 @@
     try {
       var pricesResp = await fetch("https://mempool.space/api/v1/prices");
       var feesResp = await fetch("https://mempool.space/api/v1/fees/recommended");
-      if (!pricesResp.ok || !feesResp.ok) throw new Error("respuesta no OK");
+      if (!pricesResp.ok || !feesResp.ok) throw new Error("response not OK");
       var prices = await pricesResp.json();
       var fees = await feesResp.json();
       if (prices && prices.EUR) state.btcEUR = prices.EUR;
@@ -457,7 +457,7 @@
     } catch (err) {
       state.live = false;
       setStatus(false);
-      console.warn("Tarifas Claras: no se pudo conectar con mempool.space en vivo.", err);
+      console.warn("Tarifas Claras: could not connect live to mempool.space.", err);
     }
     renderAll();
   }
@@ -487,8 +487,8 @@
   });
 
   // ---- arranque ----
-  renderAll();       // primero con datos de referencia, para que la página nunca se vea vacía
-  loadLiveData();     // luego intenta traer datos en vivo y vuelve a pintar
+  renderAll();       // first with reference data, so the page is never empty
+  loadLiveData();     // then try to fetch live data and re-render
 })();
 </script>
 </body>
