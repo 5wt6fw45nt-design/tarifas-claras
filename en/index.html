@@ -111,10 +111,31 @@
 
   @media (max-width: 620px) {
     .card-head { flex-direction: column; align-items: flex-start; }
-    th, td { padding: 10px 12px; }
     .provider { gap: 6px; }
     .affiliate-tag { display: none; }
     .amountbar .approx { margin-left: 0; width: 100%; }
+
+    /* Stacked cards on mobile, no horizontal scroll or clipping */
+    table { display: block; width: 100%; }
+    thead { display: none; }
+    tbody, tr { display: block; width: 100%; }
+    tr { padding: 14px 16px; border-bottom: 1px solid var(--line-soft); }
+    tr:last-child { border-bottom: none; }
+    td {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 5px 0; border-bottom: none; text-align: right;
+    }
+    td::before {
+      content: attr(data-label);
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--ink-soft); font-weight: 600; text-align: left; flex: none;
+    }
+    td:first-child {
+      padding-bottom: 9px; margin-bottom: 5px; border-bottom: 1px dashed var(--line-soft); text-align: left;
+    }
+    td:first-child::before { content: none; }
+    td:last-child { justify-content: flex-end; }
+    td:last-child::before { content: none; }
   }
 
   .fn-crumb { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
@@ -363,9 +384,9 @@
         costCell = '<span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 6, 15));
       }
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--plum)\"></span>" + r.name + "</div></td>" +
-        '<td class="num">' + (r.fee.type === "blocked" ? "—" : (r.note || "-")) + "</td>" +
-        '<td class="num">' + extCell + "</td>" +
-        '<td class="num">' + costCell + "</td>" +
+        '<td class="num" data-label="Withdrawal fee">' + (r.fee.type === "blocked" ? "—" : (r.note || "-")) + "</td>" +
+        '<td class="num" data-label="External withdrawal?">' + extCell + "</td>" +
+        '<td class="num" data-label="Total cost">' + costCell + "</td>" +
         "<td>" + ctaCell(r, "Go to provider") + "</td></tr>";
     });
     document.getElementById("rows-bancos").innerHTML = rows.join("");
@@ -377,8 +398,8 @@
     var rows = DATA.cex.map(function (r) {
       var costEUR = r.fee.btc * state.btcEUR;
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--teal)\"></span>" + r.name + "</div></td>" +
-        '<td class="num">' + r.fee.btc.toFixed(7) + " BTC</td>" +
-        '<td class="num"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 2, 6)) + "</td>" +
+        '<td class="num" data-label="Withdrawal fee">' + r.fee.btc.toFixed(7) + " BTC</td>" +
+        '<td class="num" data-label="Total cost"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 2, 6)) + "</td>" +
         "<td>" + ctaCell(r, "Go to provider") + "</td></tr>";
     });
     document.getElementById("rows-cex").innerHTML = rows.join("");
@@ -391,9 +412,9 @@
       var totalPct = r.platformPct + r.premiumPct;
       var costEUR = valueEUR * (totalPct / 100);
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--slate)\"></span>" + r.name + "</div></td>" +
-        '<td class="num">' + r.platformPct.toFixed(2) + " %</td>" +
-        '<td class="num">~' + r.premiumPct + " %</td>" +
-        '<td class="num"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 40, 100)) + "</td>" +
+        '<td class="num" data-label="Platform fee">' + r.platformPct.toFixed(2) + " %</td>" +
+        '<td class="num" data-label="Typical premium">~' + r.premiumPct + " %</td>" +
+        '<td class="num" data-label="Total cost"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 40, 100)) + "</td>" +
         '<td><a class="cta" href="' + r.href + '">Go to platform</a></td></tr>';
     });
     document.getElementById("rows-dex").innerHTML = rows.join("");
@@ -414,9 +435,9 @@
     ];
     var html = rows.map(function (r) {
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--gold)\"></span>" + r.name + "</div></td>" +
-        '<td class="num">' + r.rate + "</td>" +
-        '<td class="num">' + r.time + "</td>" +
-        '<td class="num"><span class="final">' + fmtEUR(r.cost) + "</span> " + pill(r.tier) + "</td>" +
+        '<td class="num" data-label="Network fee">' + r.rate + "</td>" +
+        '<td class="num" data-label="Est. time">' + r.time + "</td>" +
+        '<td class="num" data-label="Total cost"><span class="final">' + fmtEUR(r.cost) + "</span> " + pill(r.tier) + "</td>" +
         '<td><a class="cta" href="' + r.href + '" target="_blank" rel="noopener">View mempool</a></td></tr>';
     }).join("");
     document.getElementById("rows-red").innerHTML = html;
