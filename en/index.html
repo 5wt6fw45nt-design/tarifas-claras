@@ -510,6 +510,7 @@
   // ---- arranque ----
   renderAll();       // first with reference data, so the page is never empty
   loadLiveData();     // then try to fetch live data and re-render
+  setInterval(loadLiveData, 60000); // then keep refreshing on its own every 60s
 })();
 </script>
 </body>

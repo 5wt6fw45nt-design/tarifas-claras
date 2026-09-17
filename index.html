@@ -510,6 +510,7 @@
   // ---- arranque ----
   renderAll();       // primero con datos de referencia, para que la página nunca se vea vacía
   loadLiveData();     // luego intenta traer datos en vivo y vuelve a pintar
+  setInterval(loadLiveData, 60000); // y despues se refresca solo cada 60 s
 })();
 </script>
 </body>
