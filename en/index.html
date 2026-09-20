@@ -213,7 +213,7 @@
       <button type="button" data-set="0.25">0.25</button>
       <button type="button" data-set="1">1</button>
     </div>
-    <span class="approx">≈ <b id="approx-eur">…</b></span>
+    <span class="approx">≈ <b id="approx-usd">…</b></span>
   </div>
 
   <div class="tabs" role="tablist" aria-label="Way to move your BTC">
@@ -252,7 +252,7 @@
         <thead><tr><th>Exchange</th><th class="num">Withdrawal fee</th><th class="num">Total cost</th><th></th></tr></thead>
         <tbody id="rows-cex"></tbody>
       </table></div>
-      <div class="card-foot">Withdrawal fee as published by each exchange, converted to euros at the current BTC price. Does not include the fee for buying it there.</div>
+      <div class="card-foot">Withdrawal fee as published by each exchange, converted to dollars at the current BTC price. Does not include the fee for buying it there.</div>
     </div>
   </section>
 
@@ -321,7 +321,7 @@
   // ============================================================
   var DATA = {
     bancos: [
-      { name: "Revolut", fee: { type: "flat_plus_pct", flat: 3, currency: "EUR", pct: 0 }, external: true, note: "~€3, limited networks", affiliate: false, href: null },
+      { name: "Revolut", fee: { type: "flat_plus_pct", flat: 3, currency: "EUR", pct: 0 }, external: true, note: "~$3, limited networks", affiliate: false, href: null },
       { name: "Swissquote", fee: { type: "flat", flat: 10, currency: "USD" }, external: true, note: "flat $10", affiliate: false, href: null },
       { name: "PayPal (EU)", fee: { type: "pct", pct: 1 }, external: true, note: "+ network fee", affiliate: false, href: null },
       { name: "PayPal (UK)", fee: { type: "blocked" }, external: false, note: "your BTC stays there", affiliate: false, href: null },
@@ -349,9 +349,9 @@
   function fmtPct(n) {
     return n.toFixed(2) + "%";
   }
-  function fmtEUR(n) {
-    if (n < 0.01 && n > 0) return "< €0.01";
-    return "€" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function fmtUSD(n) {
+    if (n < 0.01 && n > 0) return "< $0.01";
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
   function pill(tier) {
     var cls = tier === "good" ? "good" : tier === "warn" ? "warn" : "bad";
@@ -377,16 +377,16 @@
   }
 
   function renderBancos() {
-    var amt = amountBTC(), valueEUR = amt * state.btcEUR;
+    var amt = amountBTC(), valueEUR = amt * state.btcUSD;
     var rows = DATA.bancos.map(function (r) {
       var costEUR, costCell, extCell = r.external ? "Yes" : "No";
       if (r.fee.type === "blocked") {
         costCell = '<span class="pill bad">no disponible</span>';
       } else {
         if (r.fee.type === "flat_plus_pct") costEUR = r.fee.flat + valueEUR * (r.fee.pct / 100);
-        else if (r.fee.type === "flat") costEUR = r.fee.currency === "USD" ? r.fee.flat * (state.btcEUR / state.btcUSD) : r.fee.flat;
+        else if (r.fee.type === "flat") costEUR = r.fee.currency === "EUR" ? r.fee.flat * (state.btcEUR / state.btcUSD) : r.fee.flat;
         else if (r.fee.type === "pct") costEUR = valueEUR * (r.fee.pct / 100);
-        costCell = '<span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 6, 15));
+        costCell = '<span class="final">' + fmtUSD(costEUR) + "</span> " + pill(tierFor(costEUR, 6, 15));
       }
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--plum)\"></span>" + r.name + "</div></td>" +
         '<td class="num" data-label="Withdrawal fee">' + (r.fee.type === "blocked" ? "—" : (r.note || "-")) + "</td>" +
@@ -395,43 +395,43 @@
         "<td>" + ctaCell(r, "Go to provider") + "</td></tr>";
     });
     document.getElementById("rows-bancos").innerHTML = rows.join("");
-    document.getElementById("scenario-bancos").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ") to your own wallet";
+    document.getElementById("scenario-bancos").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtUSD(valueEUR) + ") to your own wallet";
   }
 
   function renderCex() {
-    var amt = amountBTC(), valueEUR = amt * state.btcEUR;
+    var amt = amountBTC(), valueEUR = amt * state.btcUSD;
     var rows = DATA.cex.map(function (r) {
-      var costEUR = r.fee.btc * state.btcEUR;
+      var costEUR = r.fee.btc * state.btcUSD;
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--teal)\"></span>" + r.name + "</div></td>" +
         '<td class="num" data-label="Withdrawal fee">' + r.fee.btc.toFixed(7) + " BTC</td>" +
-        '<td class="num" data-label="Total cost"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 2, 6)) + "</td>" +
+        '<td class="num" data-label="Total cost"><span class="final">' + fmtUSD(costEUR) + "</span> " + pill(tierFor(costEUR, 2, 6)) + "</td>" +
         "<td>" + ctaCell(r, "Go to provider") + "</td></tr>";
     });
     document.getElementById("rows-cex").innerHTML = rows.join("");
-    document.getElementById("scenario-cex").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ") to your own wallet";
+    document.getElementById("scenario-cex").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtUSD(valueEUR) + ") to your own wallet";
   }
 
   function renderDex() {
-    var amt = amountBTC(), valueEUR = amt * state.btcEUR;
+    var amt = amountBTC(), valueEUR = amt * state.btcUSD;
     var rows = DATA.dex.map(function (r) {
       var totalPct = r.platformPct + r.premiumPct;
       var costEUR = valueEUR * (totalPct / 100);
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--slate)\"></span>" + r.name + "</div></td>" +
         '<td class="num" data-label="Platform fee">' + fmtPct(r.platformPct) + (r.note ? '<span class="fee-note">' + r.note + '</span>' : '') + "</td>" +
         '<td class="num" data-label="Typical premium">~' + r.premiumPct + " %</td>" +
-        '<td class="num" data-label="Total cost"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 40, 100)) + "</td>" +
+        '<td class="num" data-label="Total cost"><span class="final">' + fmtUSD(costEUR) + "</span> " + pill(tierFor(costEUR, 40, 100)) + "</td>" +
         '<td><a class="cta" href="' + r.href + '">Go to platform' + affTag(r) + (r.perk ? '<span class="perk-note">' + r.perk + '</span>' : '') + '</a></td></tr>';
     });
     document.getElementById("rows-dex").innerHTML = rows.join("");
-    document.getElementById("scenario-dex").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + "), with no custodial intermediary";
+    document.getElementById("scenario-dex").innerHTML = "Moving <b>" + amt + " BTC</b> (≈ " + fmtUSD(valueEUR) + "), with no custodial intermediary";
   }
 
   function renderRed() {
-    var amt = amountBTC(), valueEUR = amt * state.btcEUR;
+    var amt = amountBTC(), valueEUR = amt * state.btcUSD;
     var econSat = state.fees.hourFee, prioSat = state.fees.fastestFee;
-    var econEUR = (econSat * TX_VBYTES / 100000000) * state.btcEUR;
-    var prioEUR = (prioSat * TX_VBYTES / 100000000) * state.btcEUR;
-    var lnEUR = Math.max(1 / 100000000 * state.btcEUR, valueEUR * 0.0001);
+    var econEUR = (econSat * TX_VBYTES / 100000000) * state.btcUSD;
+    var prioEUR = (prioSat * TX_VBYTES / 100000000) * state.btcUSD;
+    var lnEUR = Math.max(1 / 100000000 * state.btcUSD, valueEUR * 0.0001);
     var lnTier = lnEUR <= econEUR ? "good" : lnEUR <= prioEUR ? "warn" : "bad";
     var rows = [
       { name: "Lightning", rate: "~1 sat + 0.01%", time: "&lt; 5 sec", cost: lnEUR, tier: lnTier, href: "#" },
@@ -442,11 +442,11 @@
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--gold)\"></span>" + r.name + "</div></td>" +
         '<td class="num" data-label="Network fee">' + r.rate + "</td>" +
         '<td class="num" data-label="Est. time">' + r.time + "</td>" +
-        '<td class="num" data-label="Total cost"><span class="final">' + fmtEUR(r.cost) + "</span> " + pill(r.tier) + "</td>" +
+        '<td class="num" data-label="Total cost"><span class="final">' + fmtUSD(r.cost) + "</span> " + pill(r.tier) + "</td>" +
         '<td><a class="cta" href="' + r.href + '" target="_blank" rel="noopener">View mempool</a></td></tr>';
     }).join("");
     document.getElementById("rows-red").innerHTML = html;
-    document.getElementById("scenario-red").innerHTML = "~" + TX_VBYTES + " vB transaction · of <b>" + amt + " BTC</b> (≈ " + fmtEUR(valueEUR) + ")";
+    document.getElementById("scenario-red").innerHTML = "~" + TX_VBYTES + " vB transaction · of <b>" + amt + " BTC</b> (≈ " + fmtUSD(valueEUR) + ")";
     document.getElementById("foot-red").textContent = state.live
       ? "Live data from mempool.space, network fee and BTC price updated a few seconds ago."
       : "No live connection right now, showing the latest available reference (not current market data).";
@@ -454,7 +454,7 @@
 
   function renderAll() {
     renderBancos(); renderCex(); renderDex(); renderRed();
-    document.getElementById("approx-eur").textContent = fmtEUR(amountBTC() * state.btcEUR);
+    document.getElementById("approx-usd").textContent = fmtUSD(amountBTC() * state.btcUSD);
   }
 
   function setStatus(live) {
