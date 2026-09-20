@@ -101,6 +101,7 @@
   .cta:hover { border-color: var(--accent); }
   .affiliate-tag { display: block; font-size: 0.68rem; color: var(--ink-soft); margin-top: 3px; font-weight: 400; white-space: normal; }
   .perk-note { display: block; font-size: 0.68rem; color: var(--teal); margin-top: 3px; font-weight: 600; white-space: normal; }
+  .fee-note { display: block; font-size: 0.64rem; color: var(--ink-soft); margin-top: 2px; font-weight: 400; white-space: normal; }
   .card-foot { padding: 12px 20px; font-size: 0.76rem; color: var(--ink-soft); background: var(--paper); border-top: 1px solid var(--line-soft); }
   .livetag { display: inline-flex; align-items: center; gap: 5px; font-size: 0.68rem; font-weight: 600; color: var(--good); background: var(--good-soft); padding: 2px 8px; border-radius: 999px; margin-left: 8px; }
   .refnote { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--ink-soft); background: var(--line-soft); padding: 4px 10px; border-radius: 999px; margin-bottom: 16px; }
@@ -225,7 +226,7 @@
 
   <!-- ===================== BANCOS ===================== -->
   <section class="panel active" id="panel-bancos">
-    <span class="refnote">Tarifas revisadas a mano · última revisión: 15 sep. 2026</span>
+    <span class="refnote">Tarifas revisadas a mano · última revisión: 20 sep. 2026</span>
     <div class="card">
       <div class="card-head">
         <h2>Sacar tu BTC de un banco a tu wallet</h2>
@@ -241,7 +242,7 @@
 
   <!-- ===================== CEX ===================== -->
   <section class="panel" id="panel-cex">
-    <span class="refnote">Tarifas revisadas a mano · última revisión: 15 sep. 2026</span>
+    <span class="refnote">Tarifas revisadas a mano · última revisión: 20 sep. 2026</span>
     <div class="card">
       <div class="card-head">
         <h2>Retirar tu BTC de un exchange</h2>
@@ -257,7 +258,7 @@
 
   <!-- ===================== DEX / P2P ===================== -->
   <section class="panel" id="panel-dex">
-    <span class="refnote">Tarifas revisadas a mano · última revisión: 15 sep. 2026</span>
+    <span class="refnote">Tarifas revisadas a mano · última revisión: 20 sep. 2026</span>
     <div class="card">
       <div class="card-head">
         <h2>Vender tu BTC de forma descentralizada</h2>
@@ -332,7 +333,7 @@
       { name: "Bit2Me", fee: { type: "flat_btc", btc: 0.0002 }, affiliate: false, href: null },
     ],
     dex: [
-      { name: "RoboSats", platformPct: 0.20, premiumPct: 2, href: "#" },
+      { name: "RoboSats", platformPct: 0.50, premiumPct: 2, note: "varía según el coordinador (desde ~0,5%)", href: "#" },
       { name: "Hodl Hodl", platformPct: 0.50, premiumPct: 3, affiliate: true, perk: "Con este enlace tú también pagas menos: 0,5% en vez de 0,75%", href: "https://hodlhodl.com/join/ETNJ" },
       { name: "Bisq", platformPct: 0.75, premiumPct: 3, href: "#" },
       { name: "Peach Bitcoin (vendedor)", platformPct: 0, premiumPct: 4, href: "#" },
@@ -345,6 +346,9 @@
   // ============================================================
   var state = { btcEUR: 62000, btcUSD: 66000, fees: { fastestFee: 28, halfHourFee: 12, hourFee: 8 }, live: false };
 
+  function fmtPct(n) {
+    return n.toFixed(2).replace(".", ",") + " %";
+  }
   function fmtEUR(n) {
     if (n < 0.01 && n > 0) return "<0,01 €";
     return n.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
@@ -413,7 +417,7 @@
       var totalPct = r.platformPct + r.premiumPct;
       var costEUR = valueEUR * (totalPct / 100);
       return "<tr><td><div class=\"provider\"><span class=\"swatch\" style=\"background:var(--slate)\"></span>" + r.name + "</div></td>" +
-        '<td class="num" data-label="Fee de plataforma">' + r.platformPct.toFixed(2) + " %</td>" +
+        '<td class="num" data-label="Fee de plataforma">' + fmtPct(r.platformPct) + (r.note ? '<span class="fee-note">' + r.note + '</span>' : '') + "</td>" +
         '<td class="num" data-label="Prima típica">~' + r.premiumPct + " %</td>" +
         '<td class="num" data-label="Coste total"><span class="final">' + fmtEUR(costEUR) + "</span> " + pill(tierFor(costEUR, 40, 100)) + "</td>" +
         '<td><a class="cta" href="' + r.href + '">Ir a la plataforma' + affTag(r) + (r.perk ? '<span class="perk-note">' + r.perk + '</span>' : '') + '</a></td></tr>';
